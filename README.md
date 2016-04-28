@@ -1,0 +1,1 @@
+A couple of years ago I jumped into VIM thanks to [Fly VIM, first class](https://corner.squareup.com/2013/08/fly-vim-first-class.html). Today I started over with [Neovim](https://neovim.io/). Less is more.
