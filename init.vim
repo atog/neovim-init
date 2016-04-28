@@ -35,6 +35,7 @@ call dein#begin(expand('/home/atog/.config/nvim/dein'))
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/deoplete.nvim')
+call dein#add('rking/ag.vim')
 " call dein#add('benekastah/neomake')
 call dein#add('NLKNguyen/papercolor-theme')
 call dein#add('junegunn/fzf.vim')
@@ -54,6 +55,8 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 let g:deoplete#enable_at_startup = 1
+
+let g:ag_working_path_mode="r"
 
 " autocmd! BufWritePost * Neomake
 
