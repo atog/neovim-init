@@ -40,6 +40,12 @@ call dein#add('rking/ag.vim')
 call dein#add('NLKNguyen/papercolor-theme')
 call dein#add('junegunn/fzf.vim')
 call dein#add('vim-airline/vim-airline')
+call dein#add('easymotion/vim-easymotion')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-fugitive')
+call dein#add('haya14busa/incsearch.vim')
+call dein#add('haya14busa/incsearch-easymotion.vim')
 call dein#end()
 
 set background=light
@@ -57,6 +63,20 @@ let g:airline_symbols.space = "\ua0"
 let g:deoplete#enable_at_startup = 1
 
 let g:ag_working_path_mode="r"
+
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+        \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+        \   'keymap': {
+        \     "\<CR>": '<Over>(easymotion)'
+        \   },
+        \   'is_expr': 0
+        \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> / incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ? incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 " autocmd! BufWritePost * Neomake
 
