@@ -35,6 +35,8 @@ call dein#begin(expand('/home/atog/.config/nvim/dein'))
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
 call dein#add('rking/ag.vim')
 " call dein#add('benekastah/neomake')
 call dein#add('NLKNguyen/papercolor-theme')
@@ -63,6 +65,9 @@ let g:airline_symbols.space = "\ua0"
 let g:deoplete#enable_at_startup = 1
 
 let g:ag_working_path_mode="r"
+
+" Vimfiler
+let g:vimfiler_as_default_explorer = 1
 
 function! s:incsearch_config(...) abort
   return incsearch#util#deepextend(deepcopy({
