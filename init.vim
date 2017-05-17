@@ -13,7 +13,6 @@ vnoremap p "_dP
 
 syntax enable
 set nocompatible
-set cursorline
 set autowrite
 set nowritebackup
 set expandtab
@@ -30,28 +29,37 @@ set tabstop=8
 
 set rtp+=~/.fzf
 
-set runtimepath^=/home/atog/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin(expand('/home/atog/.config/nvim/dein'))
+set runtimepath+=/home/atog/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state(expand('/home/atog/.config/nvim/dein'))
+  call dein#begin(expand('/home/atog/.config/nvim/dein'))
 
-" Let dein manage dein
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler.vim')
-call dein#add('mileszs/ack.vim')
-call dein#add('NLKNguyen/papercolor-theme')
-call dein#add('junegunn/fzf.vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('itchyny/landscape.vim')
-call dein#add('easymotion/vim-easymotion')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-fugitive')
-call dein#add('haya14busa/incsearch.vim')
-call dein#add('haya14busa/incsearch-easymotion.vim')
-call dein#end()
+  " Let dein manage dein
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/vimfiler.vim')
+  call dein#add('mileszs/ack.vim')
+  call dein#add('NLKNguyen/papercolor-theme')
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('itchyny/landscape.vim')
+  call dein#add('easymotion/vim-easymotion')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('haya14busa/incsearch.vim')
+  call dein#add('haya14busa/incsearch-easymotion.vim')
+  call dein#add('elixir-lang/vim-elixir')
+  call dein#add('archSeer/elixir.nvim')
+  call dein#add('rakr/vim-two-firewatch')
+  call dein#add('edkolev/tmuxline.vim')
+  call dein#add('elmcast/elm-vim')
+  call dein#end()
 
-" set background=light
+  call dein#save_state()
+endif
+
+set background=dark
 " colorscheme PaperColor
 colorscheme landscape
 
@@ -92,7 +100,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \    'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'filetype' ] ] 
+      \    'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'filetype' ] ]
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
